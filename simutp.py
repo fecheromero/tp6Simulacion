@@ -41,7 +41,7 @@ def generar_tiempo_envoltura():
 
 
 def generar_tiempo_cobro():
-    return random.random() * 2 + (10 / 60)
+    return random.random() + (10 / 60)
 
 
 def llegada():
