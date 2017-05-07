@@ -2,7 +2,7 @@ import sys
 import random
 
 cantidad_llegadas = 0
-cantidad_cajeros = 1
+cantidad_cajeros = 3
 cantidad_envolvedores = 2
 cola_envoltura = 0
 cola_cobro = 0
@@ -16,9 +16,9 @@ sumatoria_tiempos_de_envoltura = 0
 sumatoria_tiempos_de_cobro = 0
 ultimo_calculo_envoltura = 0
 ultimo_calculo_cobro = 0
-total_de_personas = 0
-tiempo_final = 10000
+tiempo_final = 100000
 vaciando = False
+cantidad_arrepentidos=0
 
 
 def condiciones_iniciales():
@@ -27,6 +27,11 @@ def condiciones_iniciales():
     for i in range(cantidad_cajeros):
         tiempos_de_proximas_salidas_cobro.append(sys.maxsize)
 
+
+def se_arrepiente():
+    cantidad_gente = cola_cobro + cola_envoltura
+    R = random.random()
+    return R < cantidad_gente/50
 
 def generar_intervalo_llegada():
     while (True):
@@ -60,12 +65,15 @@ def llegada():
     global sumatoria_tiempos_de_envoltura
     global sumatoria_tiempos_espera_envoltura
     global ultimo_calculo_envoltura
+    global cantidad_arrepentidos
 
     tiempo = tiempo_de_proxima_llegada
-    print('Llegada en ' + str(tiempo))
     intervalo = generar_intervalo_llegada()
     tiempo_de_proxima_llegada += intervalo
     cantidad_llegadas += 1
+    if(se_arrepiente()):
+        cantidad_arrepentidos += 1
+        return
     if (cola_envoltura > cantidad_envolvedores):
         sumatoria_tiempos_espera_envoltura += (tiempo - ultimo_calculo_envoltura) * (cola_envoltura - cantidad_envolvedores)
     ultimo_calculo_envoltura = tiempo
@@ -89,7 +97,6 @@ def envoltura():
     global tiempo
 
     tiempo = proxima_salida_envoltura
-    print('Envoltura en ' + str(tiempo))
     if (cola_envoltura > cantidad_envolvedores):
         sumatoria_tiempos_espera_envoltura += (tiempo - ultimo_calculo_envoltura) * (cola_envoltura - cantidad_envolvedores)
     ultimo_calculo_envoltura = tiempo
@@ -120,7 +127,6 @@ def salida_cobro():
     global tiempo
 
     tiempo = proxima_salida_cobro
-    print('Cobro en ' + str(tiempo))
     if (cola_cobro > cantidad_cajeros):
         sumatoria_tiempos_espera_cobro += (tiempo - ultimo_calculo_cobro) * (cola_cobro - cantidad_cajeros)
     ultimo_calculo_cobro = tiempo
@@ -140,10 +146,13 @@ def imprimir_resultados():
     porcentaje_tiempo_ocioso_envoltura = (1 - (sumatoria_tiempos_de_envoltura / cantidad_envolvedores) / tiempo) * 100
     promedio_espera_envoltura = sumatoria_tiempos_espera_envoltura / cantidad_llegadas
     promedio_espera_cobro = sumatoria_tiempos_espera_cobro / cantidad_llegadas
-    print('Porcentaje de tiempo ocioso en el cobro: ' + str(porcentaje_tiempo_ocioso_cobro) + '%')
-    print('Porcentaje de tiempo ocioso en la envoltura: ' + str(porcentaje_tiempo_ocioso_envoltura) + '%')
-    print('Promedio de tiempo de espera en envoltura: ' + str(promedio_espera_envoltura))
-    print('Promedio de tiempo de espera en cobro: ' + str(promedio_espera_cobro))
+    porcentaje_arrepentidos = cantidad_arrepentidos / cantidad_llegadas
+    print('Porcentaje de tiempo ocioso en el cobro: {0:.4f}%'.format(porcentaje_tiempo_ocioso_cobro))
+    print('Porcentaje de tiempo ocioso en la envoltura: {0:.4f}%'.format(porcentaje_tiempo_ocioso_envoltura))
+    print('Promedio de tiempo de espera en envoltura: {0:.4f} minutos'.format(promedio_espera_envoltura))
+    print('Promedio de tiempo de espera en cobro: {0:.4f} minutos'.format(promedio_espera_cobro))
+    print('Porcentaje de arrepentidos: {0:.4f}%'.format(porcentaje_arrepentidos))
+    print('Cantidad de arrepentidos por dia: {0:.2f} personas'.format((cantidad_arrepentidos/tiempo)*60*6))
 
 
 # simulacion
@@ -167,3 +176,4 @@ while (True):
         continue
     break
 imprimir_resultados()
+
