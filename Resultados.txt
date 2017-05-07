@@ -1,35 +1,49 @@
 Para 1 envolvedores y 1 cajeros
-Porcentaje de tiempo ocioso en el cobro: 0.01%
-Porcentaje de tiempo ocioso en la envoltura: 35.33%
-Promedio de tiempo de espera en envoltura: 56.6276 minutos
-Promedio de tiempo de espera en cobro: 2729.7299 minutos
+Porcentaje de tiempo ocioso en el cobro: 0.0019%
+Porcentaje de tiempo ocioso en la envoltura: 35.8198%
+Promedio de tiempo de espera en envoltura: 0.4338 minutos
+Promedio de tiempo de espera en cobro: 32.3325 minutos
+Porcentaje de arrepentidos: 0.3572%
+Cantidad de arrepentidos por dia: 64.25 personas
 
 Para 2 envolvedores y 1 cajeros
-Porcentaje de tiempo ocioso en el cobro: 0.001%
-Porcentaje de tiempo ocioso en la envoltura: 67.87%
-Promedio de tiempo de espera en envoltura: 0.0410 minutos
-Promedio de tiempo de espera en cobro: 27772.1464 minutos
+Porcentaje de tiempo ocioso en el cobro: 0.0019%
+Porcentaje de tiempo ocioso en la envoltura: 67.9308%
+Promedio de tiempo de espera en envoltura: 0.0102 minutos
+Promedio de tiempo de espera en cobro: 33.0977 minutos
+Porcentaje de arrepentidos: 0.3585%
+Cantidad de arrepentidos por dia: 64.56 personas
 
 Para 1 envolvedores y 2 cajeros
-Porcentaje de tiempo ocioso en el cobro: 22.33%
-Porcentaje de tiempo ocioso en la envoltura: 0.24%
-Promedio de tiempo de espera en envoltura: 60.1910 minutos
-Promedio de tiempo de espera en cobro: 0.1481 minutos
+Porcentaje de tiempo ocioso en el cobro: 25.2107%
+Porcentaje de tiempo ocioso en la envoltura: 3.7851%
+Promedio de tiempo de espera en envoltura: 3.5126 minutos
+Promedio de tiempo de espera en cobro: 0.1129 minutos
+Porcentaje de arrepentidos: 0.0360%
+Cantidad de arrepentidos por dia: 6.47 personas
 
 Para 2 envolvedores y 2 cajeros
-Porcentaje de tiempo ocioso en el cobro: 22.20%
-Porcentaje de tiempo ocioso en la envoltura: 49.91%
-Promedio de tiempo de espera en envoltura: 0.04331 minutos
-Promedio de tiempo de espera en cobro: 0.4745 minutos
-
-Para 3 envolvedores y 2 cajeros
-Porcentaje de tiempo ocioso en el cobro: 22.17%
-Porcentaje de tiempo ocioso en la envoltura: 66.64%
-Promedio de tiempo de espera en envoltura: 0.0015 minutos
-Promedio de tiempo de espera en cobro: 0.5147 minutos
+Porcentaje de tiempo ocioso en el cobro: 22.5604%
+Porcentaje de tiempo ocioso en la envoltura: 50.0508%
+Promedio de tiempo de espera en envoltura: 0.0427 minutos
+Promedio de tiempo de espera en cobro: 0.4538 minutos
+Porcentaje de arrepentidos: 0.0026%
+Cantidad de arrepentidos por dia: 0.47 personas
 
 Para 2 envolvedores y 3 cajeros
-Porcentaje de tiempo ocioso en el cobro: 48.36%
-Porcentaje de tiempo ocioso en la envoltura: 50.09%
-Promedio de tiempo de espera en envoltura: 0.0421 minutos
-Promedio de tiempo de espera en cobro: 0.0211 minutos
+Porcentaje de tiempo ocioso en el cobro: 48.0405%
+Porcentaje de tiempo ocioso en la envoltura: 50.0101%
+Promedio de tiempo de espera en envoltura: 0.0427 minutos
+Promedio de tiempo de espera en cobro: 0.0223 minutos
+Porcentaje de arrepentidos: 0.0013%
+Cantidad de arrepentidos por dia: 0.23 personas
+
+Para 3 envolvedores y 2 cajeros
+Porcentaje de tiempo ocioso en el cobro: 22.7566%
+Porcentaje de tiempo ocioso en la envoltura: 66.8506%
+Promedio de tiempo de espera en envoltura: 0.0014 minutos
+Promedio de tiempo de espera en cobro: 0.4697 minutos
+Porcentaje de arrepentidos: 0.0026%
+Cantidad de arrepentidos por dia: 0.47 personas
+
+
