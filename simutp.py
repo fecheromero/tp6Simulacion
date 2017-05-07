@@ -31,11 +31,6 @@ def condiciones_iniciales():
 def generar_intervalo_llegada():
     return random.random() * 3
 
-
-def generar_cantidad_llegada():
-    return random.randint(1, 6)
-
-
 def generar_tiempo_envoltura():
     return random.random() * 2 + (30 / 60)
 
@@ -57,18 +52,16 @@ def llegada():
     print('Llegada en ' + str(tiempo))
     intervalo = generar_intervalo_llegada()
     tiempo_de_proxima_llegada += intervalo
-    clientes = generar_cantidad_llegada()
-    cantidad_llegadas += clientes
+    cantidad_llegadas += 1
     if (cola_envoltura > cantidad_envolvedores):
         sumatoria_tiempos_espera_envoltura += (tiempo - ultimo_calculo_envoltura) * (cola_envoltura - cantidad_envolvedores)
     ultimo_calculo_envoltura = tiempo
-    for i in range(clientes):
-        cola_envoltura += 1
-        if (cola_envoltura <= cantidad_envolvedores):
-            tiempo_envoltura = generar_tiempo_envoltura()
-            sumatoria_tiempos_de_envoltura += tiempo_envoltura
-            tiempo_de_proximas_salidas_envolturas.remove(max(tiempo_de_proximas_salidas_envolturas))
-            tiempo_de_proximas_salidas_envolturas.append(tiempo + tiempo_envoltura)
+    cola_envoltura += 1
+    if (cola_envoltura <= cantidad_envolvedores):
+        tiempo_envoltura = generar_tiempo_envoltura()
+        sumatoria_tiempos_de_envoltura += tiempo_envoltura
+        tiempo_de_proximas_salidas_envolturas.remove(max(tiempo_de_proximas_salidas_envolturas))
+        tiempo_de_proximas_salidas_envolturas.append(tiempo + tiempo_envoltura)
 
 
 def envoltura():
