@@ -17,7 +17,7 @@ sumatoria_tiempos_de_cobro = 0
 ultimo_calculo_envoltura = 0
 ultimo_calculo_cobro = 0
 total_de_personas = 0
-tiempo_final = 1000
+tiempo_final = 10000
 vaciando = False
 
 
@@ -29,15 +29,28 @@ def condiciones_iniciales():
 
 
 def generar_intervalo_llegada():
-    return random.random() * 3
+    while (True):
+        R1 = random.random()
+        R2 = random.random()
+        xi = 6 * R1
+        yi = 3 * R2
+        f_xi = ((-3 / 32) * pow(xi, 2)) + ((3 / 8) * xi)
+        if (yi <= f_xi): return xi
+
 
 def generar_tiempo_envoltura():
-    return random.random() * 2 + (30 / 60)
+    R = random.random()
+    return 2*R +1
 
 
 def generar_tiempo_cobro():
-    return random.random() + (10 / 60)
-
+    while (True):
+        R1 = random.random()
+        R2 = random.random()
+        xi = 2 + 2*R1
+        yi = (2/3) * R2
+        f_xi = (1/6)*xi
+        if (yi <= f_xi): return xi
 
 def llegada():
     global tiempo
