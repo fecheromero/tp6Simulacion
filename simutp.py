@@ -2,8 +2,8 @@ import sys
 import random
 
 cantidad_llegadas = 0
-cantidad_cajeros = 3
-cantidad_envolvedores = 2
+cantidad_cajeros = 2
+cantidad_envolvedores = 3
 cola_envoltura = 0
 cola_cobro = 0
 tiempo_de_proxima_llegada = 0
@@ -30,7 +30,7 @@ def condiciones_iniciales():
 
 def se_arrepiente():
     cantidad_gente = cola_cobro + cola_envoltura
-    if(cantidad_gente < 10): return False
+    if(cantidad_gente < 5): return False
     R = random.random()
     return R < cantidad_gente/50
 
@@ -148,12 +148,13 @@ def imprimir_resultados():
     promedio_espera_envoltura = sumatoria_tiempos_espera_envoltura / cantidad_llegadas
     promedio_espera_cobro = sumatoria_tiempos_espera_cobro / cantidad_llegadas
     porcentaje_arrepentidos = cantidad_arrepentidos / cantidad_llegadas
+    arrepentidos_por_dia = (cantidad_arrepentidos/tiempo)*60*6
     print('Porcentaje de tiempo ocioso en el cobro: {0:.4f}%'.format(porcentaje_tiempo_ocioso_cobro))
     print('Porcentaje de tiempo ocioso en la envoltura: {0:.4f}%'.format(porcentaje_tiempo_ocioso_envoltura))
     print('Promedio de tiempo de espera en envoltura: {0:.4f} minutos'.format(promedio_espera_envoltura))
     print('Promedio de tiempo de espera en cobro: {0:.4f} minutos'.format(promedio_espera_cobro))
     print('Porcentaje de arrepentidos: {0:.4f}%'.format(porcentaje_arrepentidos))
-    print('Cantidad de arrepentidos por dia: {0:.2f} personas'.format((cantidad_arrepentidos/tiempo)*60*6))
+    print('Cantidad de arrepentidos por dia: {0:.2f} personas'.format(arrepentidos_por_dia))
 
 
 # simulacion
