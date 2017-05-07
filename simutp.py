@@ -30,6 +30,7 @@ def condiciones_iniciales():
 
 def se_arrepiente():
     cantidad_gente = cola_cobro + cola_envoltura
+    if(cantidad_gente < 10): return False
     R = random.random()
     return R < cantidad_gente/50
 
@@ -176,4 +177,3 @@ while (True):
         continue
     break
 imprimir_resultados()
-
